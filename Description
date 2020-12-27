@@ -1,0 +1,24 @@
+I have added the system call as before my previous assignment. 
+In the system call, there are four parameters which takes the pid value and the time for soft realtime guarantees.
+The test file would not take any inputs from the user as the I have used fork(). It forks the process, and creates two processes where one is child and the other is parent process.
+Errors handled:
+	If the user enters pid <=0 or greater than 32768, the test will return the errno 22 EINVAL invalid argument.
+	If the changes in time are made then it affects the output.
+	If the time is given as less than 0, then the system call is called but the output not be up to the mark. As the system call does not consider this.
+Expected outcome:
+	The expected output is quite random.
+	It usually gives the parent process less time.
+	If the time given is valid then also it will execute. I have not added it there because it takes time. 
+	The test file runs for specific input and one will have to change it from the inside.
+	I have used getttime of the day function on time val task struct to get the time of the process. The process I have used is the for loop that runs for some specific number of steps.
+	I have made changes in the following files as evident from the diff files like core.c, fair.c. The path for all the files will be given in the diff file.
+	In wakeup preempt entiy, I check the difference in the values of rtdifference.
+	
+	
+	
+	
+	
+I have referred to the following git repository: https://github.com/shagunuppal/Modifying-CFS-Scheduler/blob/master/patch.diff
+	
+	
+	
